@@ -1,16 +1,67 @@
-# This is a sample Python script.
+import telebot
+import json
+import time
+import requests
+import lxml.html
+from lxml import etree
+# import urllib
+from telebot import types
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# TOKEN = "1686386623:AAGYNYIbclNzlaS5NRcpCgIw8EucaL1rnZE"
+bot = telebot.TeleBot('1686386623:AAGYNYIbclNzlaS5NRcpCgIw8EucaL1rnZE')
+
+def get_titles(html_text):
+    tree = lxml.html.document_fromstring(html_text)
+    # extract text title from html, unique tag --> tags to text
+    text_titles = tree.xpath("//*[@class='title']/a/text()")
+    text_content = tree.xpath("//*[@class='col-sm-6 preview']/p/text()")
+    return text_titles, text_content
+
+def get_news_list():
+    html_text = requests.get("https://etu.ru/")
+    if html_text.status_code == 200:
+        text_title, text_content = get_titles(html_text.text)
+        keyboard = types.InlineKeyboardMarkup(); #наша клавиатура
+        news = []
+        for i, t in enumerate(text_title):
+            news.append(types.InlineKeyboardButton(text=t, callback_data='{iter}'.format(iter=i))) #кнопка «Первой новости»
+            keyboard.add(news[i]);    #добавляем кнопку в клавиатуру
+        return keyboard
+
+def help():
+    msg = """Что умеет бот?
+    /newslist  Загрузить список новостей
+    /schedule  Загрузить расписание"""
+    return msg    
+
+def schedule():
+    msg = "//В разработке"
+    return msg
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@bot.message_handler(content_types=['text'])
+def get_text_messages(message):
+    if message.text == "/start":
+        bot.send_message(message.from_user.id, "Привет, чем я могу тебе помочь?")
+    elif message.text == "/newslist":
+        bot.send_message(message.from_user.id, 'Выберите тему:', reply_markup=get_news_list())
+    elif message.text == "/schedule":
+        bot.send_message(message.from_user.id, text=schedule())
+    elif message.text == "/help":
+        bot.send_message(message.from_user.id, text=help())
+    else:
+        bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+@bot.callback_query_handler(func=lambda call: True)
+def callback_worker(call):
+    html_text = requests.get("https://etu.ru/")
+    if html_text.status_code == 200:
+        text_title, text_content = get_titles(html_text.text)
+    for i, t in enumerate(text_content):
+        if call.data == str(i): 
+            bot.send_message(call.message.chat.id, t);
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+# always at the end
+bot.polling(none_stop=True, interval=0)
