@@ -13,18 +13,23 @@ bot = telebot.TeleBot('1686386623:AAGYNYIbclNzlaS5NRcpCgIw8EucaL1rnZE')
 def get_titles(html_text):
     tree = lxml.html.document_fromstring(html_text)
     # extract text title from html, unique tag --> tags to text
-    text_titles = tree.xpath("//*[@class='title']/a/text()")
-    text_content = tree.xpath("//*[@class='col-sm-6 preview']/p/text()")
-    return text_titles, text_content
+    text_titles = tree.xpath("//*[@class='title']/a/text()")    
+    return text_titles
 
-def get_news_list():
+def get_content(html_text):
+    tree = lxml.html.document_fromstring(html_text)
+    text_content = tree.xpath("//*[@class='col-sm-6 preview']/p/text()")
+    return text_content
+
+def get_titles_list():
     html_text = requests.get("https://etu.ru/")
     if html_text.status_code == 200:
-        text_title, text_content = get_titles(html_text.text)
+        text_title = get_titles(html_text.text)
         keyboard = types.InlineKeyboardMarkup(); #наша клавиатура
         news = []
         for i, t in enumerate(text_title):
-            news.append(types.InlineKeyboardButton(text=t, callback_data='{iter}'.format(iter=i))) #кнопка «Первой новости»
+            #кнопка «Первой новости»
+            news.append(types.InlineKeyboardButton(text=t, callback_data='{iter}'.format(iter=i)))
             keyboard.add(news[i]);    #добавляем кнопку в клавиатуру
         return keyboard
 
@@ -44,7 +49,7 @@ def get_text_messages(message):
     if message.text == "/start":
         bot.send_message(message.from_user.id, "Привет, чем я могу тебе помочь?")
     elif message.text == "/newslist":
-        bot.send_message(message.from_user.id, 'Выберите тему:', reply_markup=get_news_list())
+        bot.send_message(message.from_user.id, 'Выберите тему:', reply_markup=get_titles_list())
     elif message.text == "/schedule":
         bot.send_message(message.from_user.id, text=schedule())
     elif message.text == "/help":
@@ -57,7 +62,7 @@ def get_text_messages(message):
 def callback_worker(call):
     html_text = requests.get("https://etu.ru/")
     if html_text.status_code == 200:
-        text_title, text_content = get_titles(html_text.text)
+        text_content = get_content(html_text.text)
     for i, t in enumerate(text_content):
         if call.data == str(i): 
             bot.send_message(call.message.chat.id, t)
@@ -65,42 +70,3 @@ def callback_worker(call):
 
 # always at the end
 bot.polling(none_stop=True, interval=0)
-
-
-# def get_updates():
-#    tg_request = requests.get(BOT_URL.format(method="getUpdates"))
-#    try:
-#        tg_req_data = json.loads(tg_request.text)
-#        return tg_req_data
-#    except Exception as e:
-#        print(e)
-
-
-# while True:
-#    data = get_updates()
-#    print(data)
-
-
-
-# import requests
-# import lxml.html
-# from lxml import etree
-#
-#
-# def get_titles(html_text):
-#     tree = lxml.html.document_fromstring(html_text)
-#     # extract text title from html, unique tag --> tags to text
-#     text_titles = tree.xpath("//*[@class='title']/a/text()")
-#     text_content = tree.xpath("//*[@class='col-sm-6 preview']/p/text()")
-#     return text_titles, text_content
-#
-#
-# html_text = requests.get("https://etu.ru/")
-# if html_text.status_code == 200:
-#     text_title, text_content = get_titles(html_text.text)
-#     for i, t in enumerate(text_title):
-#         text = """
-#         Заголовок -- {title}
-#         Контент   -- {content}
-#         """.format(title = t, content = text_content[i])
-#         print(text)
