@@ -9,8 +9,8 @@ import wget
 import os
 from telebot import types
 
-# TOKEN = "1686386623:AAGYNYIbclNzlaS5NRcpCgIw8EucaL1rnZE"
-bot = telebot.TeleBot('1686386623:AAGYNYIbclNzlaS5NRcpCgIw8EucaL1rnZE')
+# TOKEN = "     "
+bot = telebot.TeleBot('здесь должен быть токен')
 
 def get_titles(html_text):
     tree = lxml.html.document_fromstring(html_text)
