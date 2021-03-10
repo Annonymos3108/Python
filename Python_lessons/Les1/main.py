@@ -86,32 +86,32 @@ def definite_and_get_xls_file(courseGlobal, facultyGlobal, ThreedGlobal = 0):
 
 
 
-    # scheduleDict = (FRT1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/frt_1.xlsx?date=2021.03.09', 
-    #                 FRT2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/frt_2.xlsx?date=2021.03.09',
-    #                 FEL1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fel_1.xlsx?date=2021.03.09',
-    #                 FEL2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fel_2.xlsx?date=2021.03.09',
-    #                 FKTI11='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_1_1.xlsx?date=2021.03.09',
-    #                 FKTI12='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_1_2.xlsx?date=2021.03.09',
-    #                 FKTI13='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_1_3.xlsx?date=2021.03.09',
-    #                 FKTI21='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_2_1.xlsx?date=2021.03.09',
-    #                 FKTI22='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_2_2.xlsx?date=2021.03.09',
-    #                 FKTI23='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_2_3.xlsx?date=2021.03.09',
-    #                 FEA1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fea_1.xlsx?date=2021.03.09',
-    #                 FEA2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fea_2.xlsx?date=2021.03.09',
-    #                 FIBS1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fibs_1.xlsx?date=2021.03.09',
-    #                 FIBS2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fibs_2.xlsx?date=2021.03.09',
-    #                 INPROTEH1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/inproteh_1_2.xlsx?date=2021.03.09',
-    #                 GF1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/gf_1.xlsx?date=2021.03.09',
-    #                 GF2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/gf_2.xlsx?date=2021.03.09',
-                    
-    #                 FRT3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/frt_3.xlsx?date=2021.03.09', 
-    #                 FEL3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fel_3.xlsx?date=2021.03.09',
-    #                 FKTI31='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_3_1.xlsx?date=2021.03.09',
-    #                 FKTI32='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_3_2.xlsx?date=2021.03.09',
-    #                 FEA3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fea_3.xlsx?date=2021.03.09',
-    #                 FIBS3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fibs_3.xlsx?date=2021.03.09',
-    #                 INPROTEH3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/inproteh_3_4_1m.xlsx?date=2021.03.09',
-    #                 GF3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/gf_3.xlsx?date=2021.03.09' )
+    # FRT1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/frt_1.xlsx?date=2021.03.09', 
+    # FRT2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/frt_2.xlsx?date=2021.03.09',
+    # FEL1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fel_1.xlsx?date=2021.03.09',
+    # FEL2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fel_2.xlsx?date=2021.03.09',
+    # FKTI11='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_1_1.xlsx?date=2021.03.09',
+    # FKTI12='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_1_2.xlsx?date=2021.03.09',
+    # FKTI13='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_1_3.xlsx?date=2021.03.09',
+    # FKTI21='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_2_1.xlsx?date=2021.03.09',
+    # FKTI22='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_2_2.xlsx?date=2021.03.09',
+    # FKTI23='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_2_3.xlsx?date=2021.03.09',
+    # FEA1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fea_1.xlsx?date=2021.03.09',
+    # FEA2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fea_2.xlsx?date=2021.03.09',
+    # FIBS1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fibs_1.xlsx?date=2021.03.09',
+    # FIBS2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fibs_2.xlsx?date=2021.03.09',
+    # INPROTEH1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/inproteh_1_2.xlsx?date=2021.03.09',
+    # GF1='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/gf_1.xlsx?date=2021.03.09',
+    # GF2='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/gf_2.xlsx?date=2021.03.09',
+
+    # FRT3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/frt_3.xlsx?date=2021.03.09', 
+    # FEL3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fel_3.xlsx?date=2021.03.09',
+    # FKTI31='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_3_1.xlsx?date=2021.03.09',
+    # FKTI32='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fkti_3_2.xlsx?date=2021.03.09',
+    # FEA3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fea_3.xlsx?date=2021.03.09',
+    # FIBS3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/fibs_3.xlsx?date=2021.03.09',
+    # INPROTEH3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/inproteh_3_4_1m.xlsx?date=2021.03.09',
+    # GF3='https://etu.ru/assets/files/ru/studentam/raspisaniya-zanyatiy-i-ekzamenov/raspisanie/2020-2021-2/smeshannoe/gf_3.xlsx?date=2021.03.09' )
     wget.download(link, mid)
     print("")
     return mid
